@@ -1,0 +1,8 @@
+<div class="col-sm-3 col-md-2 sidebar">
+    <ul class="nav nav-sidebar">
+        <?php foreach ($this->getRenderData('menu_list') as $k => $v): ?>
+            <li class="<?= ($k == $this->getRenderData('command_id')) ? 'active' : ''; ?>"><a
+                    href="<?= $k; ?>"><?= $v; ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+</div>

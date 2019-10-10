@@ -1,0 +1,22 @@
+[
+  {
+    "name": "[ GVA ] [ 1039797.2103RUB ] [ VERIFIED_CARD=>TRUE ] [ EMPTY_TRID=>TRUE ]",
+    "description": "<a href=\"https://jira.site.dukascopy.com/jira/browse/WORKFLOW-2425\">WORKFLOW-2425 Refactoring \\Workflow\\Field\\Country</a>",
+    "params": {
+      "instance": "pre_gva",
+      "application": "FO",
+      "environment": "Localhost",
+      "account": "1039797",
+      "sub_account": "2103RUB",
+      "amount": "50",
+      "currency": "RUB",
+      "trid": "",
+      "description": "GVA:Payment|Verified Card|Empty TrID",
+      "country_of_origin": "",
+      "card_holder": "Card Owner Smith",
+      "card_number": "03F231CFC0157D1E6BAAF852E00B2A983DB1D049",
+      "card_bin": "451100",
+      "user_ip": "172.16.73.2"
+    }
+  }
+]

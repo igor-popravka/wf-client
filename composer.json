@@ -1,0 +1,24 @@
+{
+  "name": "dc/wfapi-gui",
+  "version": "1.0.1",
+  "description": "Workflow API GUI",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Igor Popravka",
+      "email": "igor.popravka@dukascopy.com"
+    }
+  ],
+  "require": {
+    "php": "^7",
+    "guzzlehttp/guzzle": "^6.2",
+    "dc/workflow-api": "^2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "DC\\WFAPI\\GUI\\": "lib/"
+    },
+    "files": ["config.php"]
+  }
+}

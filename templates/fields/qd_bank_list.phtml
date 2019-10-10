@@ -1,0 +1,25 @@
+<?php
+
+if ($data == 'JPN') {
+    $options = [
+        "" => "-- Please select --",
+        "0008" => "三菱UFJ銀行",
+        "0009" => "三井住友銀行",
+        "9900" => "ゆうちょ銀行",
+        "0033" => "ジャパンネット銀行",
+        "0036" => "楽天銀行",
+        "0038" => "住信ＳＢＩネット銀行"
+    ];
+} else {
+    $options = [
+        "" => "-- Please select --",
+        "0008" => "Mitsubishi UFJ Bank",
+        "0009" => "Mitsui Sumitomo Bank",
+        "9900" => "Yu-cho bank",
+        "0033" => "Japan Net Bank",
+        "0036" => "0036",
+        "0038" => "Sumishin-SBI net Bank"
+    ];
+}
+
+require 'select.phtml';

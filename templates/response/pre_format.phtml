@@ -1,0 +1,8 @@
+<?php
+use \DC\WFAPI\GUI\Response;
+
+/**@var Response $this */
+$data = var_export($this->getRenderData('pre_format'), true);
+?>
+
+<pre><?= $data; ?></pre>

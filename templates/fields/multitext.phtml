@@ -1,0 +1,31 @@
+<?php
+/**
+ * @var string $type
+ * @var string $id
+ * @var bool $required
+ * @var string $label
+ * @var string $name
+ * @var string $class
+ * @var string $value
+ * @var bool $disabled
+ * @var bool $checked
+ */
+
+$label = !empty($label) ? $label : ucfirst(strtolower(str_replace('_', ' ', $name)));
+$hidden = boolval($hidden) ? 'group-hidden' : '';
+$class = !empty($class) ? $class : '';
+$disabled = boolval($disabled) ? 'disabled' : '';
+$value = !empty($value) ? $value : '';
+$placeholder = !empty($placeholder) ? "placeholder=\"{$placeholder}\"" : '';
+?>
+
+<div class="form-group <?= $hidden; ?>">
+    <label for="<?= $name; ?>"
+           class="col-xs-4 control-label <?= boolval($required) ? 'label-required' : ''; ?>"><?= boolval($required) ? "<span style='color: #d9534f;'>*</span> {$label}" : $label; ?>
+        :</label>
+    <div class="col-xs-6">
+        <textarea id="<?= $name; ?>" 
+                  name="<?= $name; ?>"
+                  class="form-control <?= $class; ?>" <?= $disabled; ?> <?= $placeholder; ?>><?= $value; ?></textarea>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+<?php
+
+use DC\WFAPI\GUI\Response;
+use DC\WFAPI\GUI\Command;
+
+/**
+ * @var Response $this
+ * @var Command $command
+ */
+$command = $this->getRenderData('command');
+
+require 'layout/page.header.phtml';
+require 'layout/page.menu.phtml';
+?>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div id="info-panel">
+        <? if($this->hasErrors()) : ?>
+            <? foreach ($this->getErrors() as $message) : ?>
+                <h4 class="bg-danger error-message"><?= $message; ?></h4>
+            <? endforeach; ?>
+        <? endif; ?>
+        <? if($this->hasWarnings()) : ?>
+            <? foreach ($this->getWarnings() as $message) : ?>
+                <h4 class="bg-warning error-message"><?= $message; ?></h4>
+            <? endforeach; ?>
+        <? endif; ?>
+    </div>
+
+    <?php if (!empty($command)) { ?>
+        <h1 class="page-header"><?= $command->title; ?><br/>
+            <small><?= $command->description; ?></small>
+        </h1>
+
+        <form id="api-form" action="" method="post" class="form-horizontal">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h4>Request Panel</h4>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <?= $command->getParam('case_name', $command::SECTION_CASES_DATA)->render();  ?>
+                                <?= $command->getParam('case_id', $command::SECTION_CASES_DATA)->render();  ?>
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Test Cases</button>
+                                    <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
+                                            class="btn btn-default dropdown-toggle" type="button">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <? if (!empty($this->getRenderData('case_list'))) : ?>
+                                            <?php foreach ($this->getRenderData('case_list') as $id=>$case) { ?>
+                                                <li>
+                                                    <a class="test-case-item"
+                                                       data-key="<?= $id ?>"><?= $case['name']; ?></a>
+                                                    <div
+                                                        class="test-case-descriptions text-muted"><?= $case['description']; ?></div>
+                                                </li>
+                                            <?php } ?>
+                                        <? else : ?>
+                                            <li><a><span>No Cases</span></a></li>
+                                        <? endif; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6">
+                            <fieldset class="fsStyle">
+                                <legend class="legendStyle"><h3>Fields</h3></legend>
+                                <div class="fs-scrollable">
+                                    <?php foreach ($command->getParams() as $param) : ?>
+                                        <? /** @var \DC\WFAPI\GUI\Param $param */ ?>
+                                        <?= $param->render(); ?>
+                                    <?php endforeach; ?>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-xs-6">
+                            <fieldset class="fsStyle">
+                                <legend class="legendStyle"><h3>Options</h3></legend>
+                                <?php foreach ($command->getParams(Command::SECTION_API_DATA) as $param) : ?>
+                                    <? /** @var \DC\WFAPI\GUI\Param $param */ ?>
+                                    <?= $param->render(); ?>
+                                <?php endforeach; ?>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <input class="btn btn-default submit" type="submit" value="Submit">
+                    <input id="tester_action"  type="hidden" name="tester_action" value="view">
+                </div>
+            </div>
+        </form>
+        <br/><br/>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Response Panel</h4>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs">
+                    <li for="formatted" class="active"><a>Formatted</a></li>
+                    <li for="raw"><a>Raw</a></li>
+                </ul>
+                <div id="formatted" class="response-data">
+                    <h4>No Response Data</h4>
+                </div>
+
+                <div id="raw" class="response-data hidden">
+                    <h4>No Response Data</h4>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+</div>
+ 
+<?php
+require 'layout/page.footer.phtml';

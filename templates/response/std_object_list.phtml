@@ -1,0 +1,31 @@
+<?php
+use \DC\WFAPI\GUI\Response;
+
+/**@var Response $this */
+$data = $this->getRenderData('std_object_list');
+
+?>
+<? if (!empty($data)) : ?>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <? foreach (array_keys((array)$data[0]) as $name) : ?>
+                    <th><h4><?= $name; ?></h4></th>
+                <? endforeach; ?>
+            </tr>
+            </thead>
+            <tbody>
+            <? foreach ($data as $object) : ?>
+                <tr>
+                    <? foreach ($object as $value) : ?>
+                        <td><?= is_array($value) ? sprintf('<pre>%s</pre>', implode("\n", (!empty($value) ? $value : ['NULL']))) : (strlen(trim($value)) > 0 ? "<pre>{$value}</pre>" : "<pre>NULL</pre>"); ?></td>
+                    <? endforeach; ?>
+                </tr>
+            <? endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+<? else: ?>
+    <h4>Empty Response</h4>
+<? endif; ?>

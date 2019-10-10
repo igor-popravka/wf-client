@@ -1,0 +1,25 @@
+<?php
+use \DC\WFAPI\GUI\Response;
+
+/**@var Response $this */
+$data = $this->getRenderData('std_object');
+?>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th width="400"><h4>Name</h4></th>
+            <th><h4>Value</h4></th>
+        </tr>
+        </thead>
+        <tbody>
+        <? foreach ($data as $name => $value) : ?>
+            <tr>
+                <th><?= strtoupper($name); ?>:</th>
+                <td><?= is_array($value) ? sprintf('<pre>%s</pre>', implode("\n", (!empty($value) ? $value : ['NULL']))) : (strlen(trim($value)) > 0 ? "<pre>{$value}</pre>" : "<pre>NULL</pre>"); ?></td>
+            </tr>
+        <? endforeach; ?>
+        </tbody>
+    </table>
+</div>

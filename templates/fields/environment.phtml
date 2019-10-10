@@ -1,0 +1,7 @@
+<?php
+use \DC\WFAPI\GUI\Config;
+
+$env_keys = array_keys(Config::getSection(Config::SECTION_ENVIRONMENTS));
+$options = array_combine($env_keys, $env_keys);
+
+require 'select.phtml';

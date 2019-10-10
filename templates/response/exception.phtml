@@ -1,0 +1,24 @@
+<?php
+use \DC\WFAPI\GUI\Response;
+
+/**@var Response $this */
+
+$data = $this->getRenderData('exception');
+?>
+
+<h4>Error message:</h4>
+<p><pre><?= $data['exception']; ?></pre></p>
+<? if (!empty($data['data'])): ?>
+    <h4>External data:</h4>
+    <p><pre><?= print_r($data['data'], true); ?></pre></p>
+<? endif; ?>
+
+<? if (!empty($data['log_uid'])): ?>
+<h4>Log UID:</h4>
+<p>
+<pre><?= $data['log_uid']; ?></pre></p>
+<? endif; ?>
+
+<h4>Log trace:</h4>
+<p>
+<pre><?= $data['trace']; ?></pre></p>

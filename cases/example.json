@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Some Case Name #1",
+    "description": "Some Case Descriptions",
+    "params": {
+      "instance": "pre_gva",
+      "application": "EBANK",
+      "environment": "Pre DEMO",
+      "account": "1021153",
+      "sub_account": "0218USD",
+      "amount": "10",
+      "currency": "USD",
+      "description": "Test Case 1",
+      "country_of_origin": "POL",
+      "card_holder": "POPRAVKA Igor",
+      "card_number": "4476 **** 8917",
+      "card_bin": "1456"
+    }
+  },
+  {
+    "name": "Some Case Name #2",
+    "description": "Some Case Descriptions",
+    "params": {
+      "instance": "pre_eur",
+      "application": "FO",
+      "environment": "Localhost",
+      "account": "1020920",
+      "sub_account": "0219USD",
+      "amount": "12.33",
+      "currency": "USD",
+      "description": "Test Case 2",
+      "country_of_origin": "LVA",
+      "card_holder": "POPRAVKA Igor",
+      "card_number": "4476 **** 8917",
+      "card_bin": "1456"
+    }
+  }
+]

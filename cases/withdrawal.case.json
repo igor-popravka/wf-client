@@ -1,0 +1,27 @@
+[
+  {
+    "name": "[ JPN ] [ 1026428.0201JPY ] [ BIC/SWIFT=>Empty ]",
+    "description": "<a href=\"https://jira.site.dukascopy.com/jira/browse/WORKFLOW-2445\">WORKFLOW-2445 Refactoring \\Workflow\\Field\\Country</a>",
+    "params": {
+      "instance": "pre_jpn",
+      "application": "FO",
+      "environment": "Localhost",
+      "account": "1026428",
+      "sub_account": "0201JPY",
+      "amount": "1000",
+      "currency": "JPY",
+      "beneficiary_name": "見年子 亜列樟",
+      "beneficiary_address": "02166, Kiev",
+      "beneficiary_city": "Kiev",
+      "beneficiary_country": "JPN",
+      "to_iban": "7274903",
+      "to_bank_name": "MIZUHO BANK, LTD.",
+      "to_bank_address": "",
+      "to_bic_swift": "",
+      "to_branch_name": "支店",
+      "to_bank_account_type": "ordinary_deposit",
+      "to_bank_account_holder": "Wicked　Mind",
+      "to_intermediary_bank": ""
+    }
+  }
+]

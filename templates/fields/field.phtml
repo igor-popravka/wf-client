@@ -1,0 +1,18 @@
+<?php
+/**
+ * @var string $type
+ * @var bool $required
+ * @var string $label
+ * @var string $name
+ */
+$hidden = boolval($hidden) || $type == 'hidden' ? 'group-hidden' : '';
+$label = !empty($label) ? $label : ucfirst(strtolower(str_replace('_', ' ', $name)));
+?>
+<div class="form-group <?= $hidden; ?>">
+    <label for="<?= $name; ?>"
+           class="col-xs-4 control-label <?= boolval($required) ? 'label-required' : ''; ?>"><?= boolval($required) ? "<span style='color: #d9534f;'>*</span> {$label}" : $label; ?>
+        :</label>
+    <div class="col-xs-6">
+        <? require "input.phtml"; ?>
+    </div>
+</div>

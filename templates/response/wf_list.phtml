@@ -1,0 +1,34 @@
+<?php
+use \DC\WFAPI\GUI\Response;
+
+/**@var Response $this */
+
+$data = $this->getRenderData('wf_list');
+?>
+
+<? if (!empty($data['list'])) : ?>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Workflow ID</th>
+            <th>Status</th>
+            <th>Workflow Type ID</th>
+            <th>Status Comment</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($data['list'] as $row) : ?>
+            <tr>
+                <td><?= $row->WORKFLOW_ID; ?></td>
+                <td><?= $row->STATUS; ?></td>
+                <td><?= $row->WORKFLOW_TYPE_ID; ?></td>
+                <td>
+                    <? if (isset($row->STATUS_COMMENT)) : ?>
+                        <pre><?= $row->STATUS_COMMENT; ?></pre>
+                    <? endif; ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+<? endif; ?>

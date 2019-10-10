@@ -1,0 +1,7 @@
+<?php
+use \DC\WFAPI\GUI\Config;
+
+$api_keys = array_keys(Config::getSection(Config::SECTION_API_KEYS));
+$options = array_combine($api_keys, $api_keys);
+
+require 'select.phtml';

@@ -1,0 +1,44 @@
+<?php
+
+use \DC\WFAPI\GUI\Response;
+
+/**@var Response $this */
+
+$data = $this->getRenderData('default');
+?>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th><h4>Name</h4></th>
+            <th><h4>Value</h4></th>
+        </tr>
+        </thead>
+        <tbody>
+        <? foreach ($data as $name => $value): ?>
+            <? if ($name == 'link'): ?>
+                <tr>
+                    <th><?= strtoupper($name); ?>:</
+                    >
+                    <td><a href="<?= $value; ?>" target="_blank"><?= $value; ?></a></td>
+                </tr>
+            <? else: ?>
+                <tr>
+                    <th><?= strtoupper($name); ?>:</
+                    >
+                    <? if (is_array($value)): ?>
+                        <td>
+                            <? foreach ($value as $vl): ?>
+                                <div style="color: darkred;">- <?= $vl; ?></div>
+                            <? endforeach; ?>
+                        </td>
+                    <? else: ?>
+                        <td><?= $value; ?></td>
+                    <? endif; ?>
+                </tr>
+            <? endif; ?>
+        <? endforeach; ?>
+        </tbody>
+    </table>
+</div>
